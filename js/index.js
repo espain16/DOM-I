@@ -39,4 +39,39 @@ const siteContent = {
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute('src', siteContent["nav"]['img-src'])
+
+
+// Navigation 
+let navBar = Array.from(document.querySelectorAll('a'));
+navBar.forEach((element, index)=> element.textContent = siteContent.nav[`nav-item-${index + 1}`]);
+navBar.forEach((element)=>element.style.color = 'green');
+
+//cta
+let callToAction = document.querySelector('h1');
+callToAction.textContent = "DOM Is Awesome";
+
+//cta-img
+let codeImg = document.querySelector('#cta-img');
+codeImg.setAttribute('src', siteContent["cta"] ["img-src"]);
+
+//top-content text-content
+let topText = document.querySelectorAll('.text-content');
+
+// middle-img
+let midImg = document.getElementById('middle-img');
+midImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
+
+const mainContent = document.querySelectorAll('.main-content .text-content');
+const sections = ['features', 'about', 'services', 'product', 'vision' ]
+mainContent.forEach((element, index)=> {
+  const section = sections[index]
+  element.querySelector('h4').textContent = siteContent['main-content'][`${section}-h4`]; element.querySelector('p').textContent = siteContent['main-content'][`${section}-content`];
+
+})
+
+//bottom-content text-content
+let bottomText = document.querySelectorAll('.bottom-content .text-content');
+
+//contact
+
